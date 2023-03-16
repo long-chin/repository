@@ -80,12 +80,25 @@
 
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
+<!--                <version>2.8.2</version>-->
                 <configuration>
                     <!-- altDeploymentRepository ：指定替代方案应该部署项目工件的存储库（除了指定的工件）。 -->
                     <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/repository
                     </altDeploymentRepository>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+<!--                <version>3.2.1</version>-->
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.github.github</groupId>
